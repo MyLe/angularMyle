@@ -1,11 +1,19 @@
-<div style="width: 80%;  float:left; height: 700px; background-color:whitesmoke">
+<div style="width: 80%;  float:left; height: 600px; background-color:whitesmoke">
   <div style="padding: 20px;">
-    <p>mainpage works!</p>
+    <p>Main Page</p>
+    <br/>
+
+    <button (click)="addItem()">Add</button>
+    <button (click)="addItem()">Edit</button>
+    <button (click)="addItem()">Delete</button>
     <ag-grid-angular
-      style="width: 800px; height: 300px;"
+       style="width: 800px; height: 300px;"
       class="ag-theme-balham"
+      [gridOptions]="gridOptions"
+      [columnDefs]="columnDefs"
       [rowData]="rowData"
-      [columnDefs]="columnDefs">
-    </ag-grid-angular>
+      (gridReady)="onGridReady($event)"
+    ></ag-grid-angular> 
+
   </div>
 </div>

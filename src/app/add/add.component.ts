@@ -5,13 +5,14 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router} from '@angular/router';
 
 @Component({
-  selector: 'app-mainpage',
-  templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.scss']
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.scss']
 })
-export class MainpageComponent implements OnInit {
-	title = 'app';
-	formdata;
+export class AddComponent implements OnInit {
+  title = 'app';
+  formdata;
+  gridApi
 	cutomerdata = [];
 	constructor(
 		private http: HttpClient,
@@ -41,33 +42,8 @@ export class MainpageComponent implements OnInit {
 		   "message" : data.message
 	   };
 		
-	this.rowData.push(row);
-	this.gridApi.setRowData(this.rowData);
-	}
-
-	 gridApi;
-	 rowData = [
-			{name: 'LeLe', phone: '0963456567', address: 'VietNam', message: 'ahihi' },
-			{name: 'LangLang', phone: '0987678546', address: 'USA', message: 'ahuhu' },
-			
-		];
-  
-	onGridReady(params) {
-	  this.gridApi = params.api;
-	}
-  
-	addItem() {
-		this.router.navigate(['/add'])
-	}
-
-	columnDefs = [
-    	{headerName: 'Name', field: 'name' },
-		{headerName: 'Phone', field: 'phone' },
-		{headerName: 'Address', field: 'address' },
-		{headerName: 'Message', field: 'message'}
-	];
-
-	gridOptions = {
+	// this.rowData.push(row);
+	// this.gridApi.setRowData(this.rowData);
 	}
 
 }

@@ -1,0 +1,29 @@
+<div style="width: 80%;  float:left; height: 600px; background-color:whitesmoke">
+    <div style="padding: 20px;">
+      <p>Add User</p>
+      <div class="form_container">
+        <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+          <header>User Infomations</header>
+          <label>Họ và tên
+            <span>*</span>
+          </label>
+          <input type="text" name="name" formControlName="name" />
+          <label>Số ĐT
+            <span>*</span>
+          </label>
+          <input type="text" name="phone" formControlName="phone" />
+          <label>Địa chỉ
+            <span></span>
+          </label>
+          <input type="text" name="address" formControlName="address" />
+          <label>Lời nhắn gửi
+            <span></span>
+          </label>
+          <input type="text" name="message" formControlName="message" />
+          <!-- <button [disabled]="!formdata.valid" value="Submit">Submit</button> -->
+          <button value="Submit">Submit</button>
+          <button routerLink = "">Trở lại</button>
+        </form>
+      </div>
+      </div>
+</div>
