@@ -1,19 +1,57 @@
-<div style="width: 80%;  float:left; height: 600px; background-color:whitesmoke">
+<div style="width: 80%;  float:left; height: 700px; background-color:whitesmoke">
   <div style="padding: 20px;">
     <p>Main Page</p>
     <br/>
 
-    <button (click)="addItem()">Add</button>
-    <button (click)="addItem()">Edit</button>
-    <button (click)="addItem()">Delete</button>
+    <!-- <p>Add User</p>
+    <br/> -->
+    <div style="width: 40%; float: left; padding-left: 20px">
+        <form [formGroup]="formdata" >
+          <header>User Infomations</header>
+          <label>Full Name
+            <span>*</span>
+          </label>
+          <input type="text" name="name" formControlName="name" />
+          <label>Phone Number
+            <span>*</span>
+          </label>
+          <input type="text" name="phone" formControlName="phone" />
+          <label>Address
+            <span></span>
+          </label>
+          <input type="text" name="address" formControlName="address" />
+          <label>Message
+            <span></span>
+          </label>
+          <input type="text" name="message" formControlName="message" />
+          <!-- <button [disabled]="!formdata.valid" value="Submit">Submit</button> -->
+          <button [disabled]="!formdata.valid" class="btn btn-success btn-sm button-margin" (click)="onClickSubmit(formdata.value)" value="Submit">Add</button>
+          <button  class="btn btn-success btn-sm button-margin" (click)="editSubmit(formdata.value)" value="Submit">Edit</button>
+          <button class="btn btn-danger btn-sm button-margin" (click)="clearItem()">Clear</button>
+        </form>
+      </div>
+      <!-- end add user -->
+
+    <div style="margin: 0.1px">
+    <button class="btn btn-success btn-sm button-margin" (click)="addItem()">Add</button>
+    <button class="btn btn-primary btn-sm button-margin" (click)="editItem()">Edit</button>
+    <button class="btn btn-danger btn-sm button-margin" (click)="deleteItem()">Delete</button>
+    </div>
+
     <ag-grid-angular
-       style="width: 800px; height: 300px;"
+      style="width: 60%; height: 400px; float: left;"
       class="ag-theme-balham"
       [gridOptions]="gridOptions"
       [columnDefs]="columnDefs"
       [rowData]="rowData"
       (gridReady)="onGridReady($event)"
-    ></ag-grid-angular> 
+      [suppressRowClickSelection]="true"
+      [rowSelection]="rowSelection"
+      (rowSelected)="onRowSelected($event)"
+      (selectionChanged)="onSelectionChanged($event)"
+    ></ag-grid-angular>
+
+
 
   </div>
 </div>

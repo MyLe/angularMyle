@@ -18,6 +18,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AddComponent } from './add/add.component';
     MainpageComponent,
     SiderbarComponent,
     ModalComponent,
-    AddComponent
+    AddComponent,
+    EditComponent,
+    HomeComponent
 
   ],
   imports: [
@@ -42,7 +46,11 @@ import { AddComponent } from './add/add.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: UserloginComponent
+        component: HomeComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
       },
       {
          path: 'userlogin',
@@ -55,6 +63,10 @@ import { AddComponent } from './add/add.component';
       {
         path: 'add',
         component: AddComponent
+      },
+      {
+        path: 'edit',
+        component: EditComponent
       }
    ]),
     BrowserAnimationsModule

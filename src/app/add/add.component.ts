@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router} from '@angular/router';
+import {MainpageComponent} from '../mainpage/mainpage.component'
 
 @Component({
   selector: 'app-add',
@@ -10,6 +11,7 @@ import { Router} from '@angular/router';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
+  @ViewChild(MainpageComponent) mainpage;
   title = 'app';
   formdata;
   gridApi
@@ -33,7 +35,7 @@ export class AddComponent implements OnInit {
 		  message:new FormControl("")
 	   });
 	}
-	
+
 	onClickSubmit(data) {
 	   var row = {
 		   "name" : data.name,
@@ -41,7 +43,7 @@ export class AddComponent implements OnInit {
 		   "address" : data.address,
 		   "message" : data.message
 	   };
-		
+
 	// this.rowData.push(row);
 	// this.gridApi.setRowData(this.rowData);
 	}
